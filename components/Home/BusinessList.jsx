@@ -26,8 +26,9 @@ export default function BusinessList() {
         display:'flex',
         flexDirection:'row',
         justifyContent:'space-between',
-        marginTop:10,
-        padding:20 
+        marginTop:20,
+        paddingLeft:20,
+        marginBottom:10 
         }}>
         <Text style={{
         fontSize:20, 
