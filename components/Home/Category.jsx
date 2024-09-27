@@ -5,9 +5,11 @@ import {Colors} from '../../constants/Colors.ts'
 import CategoryItem from './CategoryItem.jsx';
 import { collection,getDocs,query } from 'firebase/firestore';
 import {db} from '../../configs/FirebaseConfig.js';
+import { useRouter } from 'expo-router';
 
 export default function Category() {
     const [categoryList, setCategoryList] = useState([]);
+    const router=useRouter();
     useEffect(()=>{
         GetCategoryList();
     },[]);
@@ -42,7 +44,7 @@ export default function Category() {
         style={{marginLeft:20}}
         horizontal={true}
         renderItem={({item,index})=>(
-            <CategoryItem category={item} key={index} onCategoryPress={(category)=>console.log(category)}/>
+            <CategoryItem category={item} key={index} onCategoryPress={(category)=>router.push('/businesslist/'+item.name)}/>
         )}
       />
 
