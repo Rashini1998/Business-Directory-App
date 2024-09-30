@@ -27,13 +27,13 @@ export default function BusinessList() {
         flexDirection:'row',
         justifyContent:'space-between',
         marginTop:20,
-        paddingLeft:20,
-        marginBottom:10 
+        padding:20,
+        marginBottom:5 
         }}>
         <Text style={{
         fontSize:20, 
         fontFamily:'outfit-bold',
-      }}>Category 
+      }}>Popular Business 
       </Text> 
       <Text style={{color:Colors.PRIMARY, fontFamily:'outfit-medium'}}>View All</Text> 
         </View> 
