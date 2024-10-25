@@ -7,6 +7,7 @@ import { Colors } from '../../constants/Colors';
 import Intro from '../../components/BusinessDetail/Intro';
 import ActionButton from '../../components/BusinessDetail/ActionButton';
 import About from '../../components/BusinessDetail/About';
+import Reviews from '../../components/BusinessDetail/Reviews';
 
 export default function BusinessDetails() {
 const {businessid}=useLocalSearchParams();
@@ -20,7 +21,7 @@ const GetBusinessDetailById=async()=>{
     const docRef=doc(db,'BusinessList',businessid);
     const docSnap=await getDoc(docRef);
     if(docSnap.exists()){
-        setBusinessDetails(docSnap.data());
+        setBusinessDetails({id:docSnap.id,...docSnap.data()});
         setLoading(false);
     }else{
         console.log("No such document!");
@@ -47,6 +48,9 @@ const GetBusinessDetailById=async()=>{
 
             {/* About section */}
             <About business={businessdetails}/>
+
+            {/* Review Section */}
+            <Reviews business={businessdetails}/>
         </View>
         }
     </ScrollView>
